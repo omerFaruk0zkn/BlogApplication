@@ -1,0 +1,30 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# React Build
+client/build/
+
+# Logs
+*.log
+logs/
+debug.log
+
+# Environment Variables
+.env
+
+# Uploads
+uploads/
+
+# VSCode Config
+.vscode/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Dist/Compiled Files
+dist/
+out/
