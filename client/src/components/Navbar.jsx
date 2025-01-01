@@ -98,7 +98,7 @@ const Navbar = () => {
                   <span>Profil</span>
                   {tokenData.profileImage && (
                     <img
-                      src={`http://localhost:5000${tokenData.profileImage}`}
+                      src={`${process.env.REACT_APP_SERVER_URL}${tokenData.profileImage}`}
                       alt="Profile"
                       className="w-8 h-8 rounded-full object-cover"
                     />
@@ -215,7 +215,7 @@ const Navbar = () => {
                   <span>Profil</span>
                   {tokenData.profileImage && (
                     <img
-                      src={`http://localhost:5000${tokenData.profileImage}`}
+                      src={`${process.env.REACT_APP_SERVER_URL}${tokenData.profileImage}`}
                       alt="Profile"
                       className="w-8 h-8 rounded-full object-cover"
                     />

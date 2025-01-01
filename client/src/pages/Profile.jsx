@@ -105,7 +105,7 @@ const Profile = () => {
               </div>
               {user.profileImage && (
                 <img
-                  src={`http://localhost:5000${user.profileImage}`}
+                  src={`${process.env.REACT_APP_SERVER_URL}${user.profileImage}`}
                   alt="Profile"
                   className="w-24 h-24 md:w-20 md:h-20 lg:w-40 lg:h-40 rounded-full object-cover lg:mr-8"
                 />

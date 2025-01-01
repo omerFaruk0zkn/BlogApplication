@@ -14,7 +14,6 @@ const RegisterPage = () => {
     password: "",
   });
   const { status, error } = useSelector((state) => state.auth);
-console.log(error);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

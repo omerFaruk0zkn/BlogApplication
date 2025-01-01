@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/api/categories",
+  baseURL: `${process.env.REACT_APP_SERVER_URL}/api/categories`,
 });
 
 axiosInstance.interceptors.request.use((config) => {
