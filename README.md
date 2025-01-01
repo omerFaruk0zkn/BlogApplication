@@ -2,7 +2,7 @@
 
 ## Proje Linki
 
-<a href="https://blogapplication-237x.onrender.com/">Blog Uygulamasına Git</a>
+<a href="https://blogapplication-237x.onrender.com/" target="_blank">Blog Uygulamasına Git</a>
 
 ---
 
