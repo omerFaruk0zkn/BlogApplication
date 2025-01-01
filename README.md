@@ -1,5 +1,11 @@
 # BlogApp
 
+## Proje Linki
+
+<a href="https://blogapplication-237x.onrender.com/">Blog Uygulamasına Git</a>
+
+---
+
 ## Proje Tanıtımı
 
 **BlogApp**, modern bir blog platformudur. Kullanıcıların blog oluşturup paylaşabildiği, diğer blogları okuyabildiği ve yorum yapabildiği bir sistemdir. Proje full-stack bir mimariye sahiptir ve React, NodeJS ve MongoDB gibi teknolojiler kullanılarak geliştirilmiştir.
@@ -74,6 +80,10 @@ cd blogApp
 - Gerekli bağımlılıkları yükleyin:
   ```bash
   npm install
+  ```
+- .env dosyası oluşturun ve aşağıdaki bilgileri ekleyin:
+  ```bash
+  REACT_APP_SERVER_URL=http://localhost:5000
   ```
 - React uygulamasını çalıştırın:
   ```bash
