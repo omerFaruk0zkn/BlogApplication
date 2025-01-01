@@ -79,3 +79,23 @@ cd blogApp
   ```bash
   npm start
   ```
+
+---
+
+## Kullanım Senaryoları
+
+### 1. Kayıt ve Giriş:
+- Kullanıcılar e-posta ve şifre ile kayıt olabilir ve giriş yapabilir.
+- JWT ile güvenli oturum yönetimi sağlanır.
+
+### 2. Blog İşlemleri:
+- Kullanıcılar blog oluşturabilir, düzenleyebilir ve silebilir.
+- Admin tarafından onaylanan bloglar herkese görünür hale gelir.
+
+### 3. Yorum Sistemi:
+- Kullanıcılar bloglara yorum yapabilir, yorumları düzenleyebilir veya silebilir.
+- En popüler yorumlar otomatik olarak sıralanır.
+
+### 4. Kategori Yönetimi:
+- Bloglar kategorilere göre filtrelenebilir.
+- Admin, kategorileri düzenleyebilir veya silebilir.
