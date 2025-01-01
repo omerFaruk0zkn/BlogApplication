@@ -42,5 +42,40 @@
 ### 1. Depoyu Klonlama
 
 ```bash
-git clone https://github.com/USERNAME/blogApp.git
+git clone https://github.com/omerFaruk0zkn/BlogApplication.git
 cd blogApp
+```
+
+### 2. Backend Kurulumu
+- api klasörüne gidin:
+  ```bash
+  cd api
+  ```
+- Gerekli bağımlılıkları yükleyin:
+  ```bash
+  npm install
+  ```
+- .env dosyası oluşturun ve aşağıdaki bilgileri ekleyin:
+  ```bash
+  MONGO_URI=<MongoDB bağlantı URI>
+  JWT_SECRET=<JWT için gizli anahtar>
+  PORT=5000
+  ```
+- Sunucuyu çalıştırın:
+  ```bash
+  npm run dev
+  ```
+
+### 3. Frontend Kurulumu
+- client klasörüne gidin:
+  ```bash
+  cd client
+  ```
+- Gerekli bağımlılıkları yükleyin:
+  ```bash
+  npm install
+  ```
+- React uygulamasını çalıştırın:
+  ```bash
+  npm start
+  ```
