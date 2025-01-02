@@ -163,11 +163,7 @@ exports.getRecommendedBlogs = async (req, res) => {
       .sort({ views: -1, commentCount: -1 })
       .limit(5);
 
-    if (recommendedBlogs.length > 0) {
-      res.status(200).json(recommendedBlogs);
-    } else {
-      res.status(404).json({ message: "Hiçbir öneri mevcut değil" });
-    }
+    res.status(200).json(recommendedBlogs);
   } catch (error) {
     res
       .status(500)

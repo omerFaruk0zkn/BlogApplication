@@ -13,7 +13,7 @@ const RegisterPage = () => {
     email: "",
     password: "",
   });
-  const { status, error } = useSelector((state) => state.auth);
+  const { status } = useSelector((state) => state.auth);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -17,35 +17,35 @@ const Home = () => {
     (state) => state.blogs
   );
 
+  console.log(recommendedBlogs);
+
   useEffect(() => {
     dispatch(fetchTrendingBlogs());
-    dispatch(fetchRecommendedBlogs());
-    dispatch(fetchPersonalizedBlogs());
-  }, [dispatch]);
+    if (token) {
+      dispatch(fetchRecommendedBlogs());
+      dispatch(fetchPersonalizedBlogs());
+    }
+  }, [dispatch, token]);
 
   return (
     <div>
-      {trendingBlogs.length > 0 ||
-      (token &&
-        (recommendedBlogs.length > 0 || personalizedBlogs.length > 0)) ? (
+      <>
+        <div className="mb-8">
+          <TrendingBlogs trendingBlogs={trendingBlogs} />
+        </div>
         <>
-          <div className="mb-8">
-            <TrendingBlogs trendingBlogs={trendingBlogs} />
-          </div>
-          <>
-            <div className="mt-8">
-              <RecommendedBlogs recommendedBlogs={recommendedBlogs} />
-            </div>
-            <div className="mt-8">
-              <PersonalizedBlogs personalizedBlogs={personalizedBlogs} />
-            </div>
-          </>
+          {token && (
+            <>
+              <div className="mt-8">
+                <RecommendedBlogs recommendedBlogs={recommendedBlogs} />
+              </div>
+              <div className="mt-8">
+                <PersonalizedBlogs personalizedBlogs={personalizedBlogs} />
+              </div>
+            </>
+          )}
         </>
-      ) : (
-        <p className="text-center text-red-500 font-semibold text-xl italic">
-          Şu anda gösterilecek bir içerik bulunmamaktadır.
-        </p>
-      )}
+      </>
     </div>
   );
 };
