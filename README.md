@@ -83,7 +83,7 @@ cd blogApp
   ```
 - .env dosyası oluşturun ve aşağıdaki bilgileri ekleyin:
   ```bash
-  REACT_APP_SERVER_URL=http://localhost:5000/api
+  REACT_APP_SERVER_URL=http://localhost:5000
   ```
 - React uygulamasını çalıştırın:
   ```bash
