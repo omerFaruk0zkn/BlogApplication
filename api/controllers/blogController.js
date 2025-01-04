@@ -125,7 +125,7 @@ exports.toggleLike = async (req, res) => {
 
 exports.getTrendingBlogs = async (req, res) => {
   try {
-    const blogs = await Blog.find({})
+    const blogs = await Blog.find({ approved: true })
       .sort({ views: -1, likes: -1, commentCount: -1 })
       .limit(5);
 
@@ -159,6 +159,7 @@ exports.getRecommendedBlogs = async (req, res) => {
     const recommendedBlogs = await Blog.find({
       _id: { $nin: likedBlogIds },
       _id: { $in: recommendedBlogIds },
+      approved: true,
     })
       .sort({ views: -1, commentCount: -1 })
       .limit(5);
@@ -192,6 +193,7 @@ exports.getPersonalizedBlogs = async (req, res) => {
 
     const personalizedBlogs = await Blog.find({
       _id: { $nin: blogIds },
+      approved: true,
     }).limit(5);
 
     res.status(200).json(personalizedBlogs);
