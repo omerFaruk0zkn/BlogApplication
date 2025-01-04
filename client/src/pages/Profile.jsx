@@ -14,6 +14,7 @@ const Profile = () => {
   const [formData, setFormData] = useState({ username: "", email: "" });
   const [imageFile, setImageFile] = useState(null);
   const [activeTab, setActiveTab] = useState("blogs");
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     dispatch(fetchProfile());
@@ -39,11 +40,18 @@ const Profile = () => {
     setImageFile(e.target.files[0]);
   };
 
-  const handleImageUpload = (e) => {
+  const handleImageUpload = async (e) => {
     e.preventDefault();
+    setIsUploading(true);
     const formData = new FormData();
     formData.append("profileImage", imageFile);
-    dispatch(uploadProfileImage(formData));
+    try {
+      await dispatch(uploadProfileImage(formData));
+    } catch (error) {
+      console.error("Resim yükleme hatası:", error);
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   return (
@@ -97,9 +105,14 @@ const Profile = () => {
                   />
                   <button
                     type="submit"
-                    className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600"
+                    disabled={isUploading}
+                    className={`bg-green-500 text-white py-2 px-4 rounded-md ${
+                      isUploading
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:bg-green-600"
+                    }`}
                   >
-                    Resim Yükle
+                    {isUploading ? "Yükleniyor..." : "Resim Yükle"}
                   </button>
                 </form>
               </div>
