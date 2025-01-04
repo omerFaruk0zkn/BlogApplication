@@ -61,11 +61,14 @@ cd blogApp
   ```bash
   npm install
   ```
-- .env dosyası oluşturun ve aşağıdaki bilgileri ekleyin:
+- .env dosyası oluşturun ve aşağıdaki bilgileri ekleyin (<a href="https://cloudinary.com/users/login" target="_blank">https://cloudinary.com/users/login</a> - cloudinary sitesinden kayıt olarak cloud bilgilerini alabilirsiniz.):
   ```bash
   MONGO_URI=<MongoDB bağlantı URI>
   JWT_SECRET=<JWT için gizli anahtar>
   PORT=5000
+  CLOUDINARY_CLOUD_NAME=<Cloud Name>
+  CLOUDINARY_API_KEY=<Cloud API Key>
+  CLOUDINARY_API_SECRET=<Cloud API Secret Key>
   ```
 - Sunucuyu çalıştırın:
   ```bash
