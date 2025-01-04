@@ -14,7 +14,7 @@ const UserComments = () => {
   return (
     <div className="p-4 max-w-6xl mx-auto">
       <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-4">
-        {comments.map((comment) => (
+        {comments?.map((comment) => (
           <div
             key={comment._id}
             className="bg-white shadow-md rounded-lg p-4 border border-gray-200 hover:shadow-lg transition-shadow duration-300"

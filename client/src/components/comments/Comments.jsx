@@ -75,7 +75,7 @@ const Comments = ({ blogId }) => {
       <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4">
         Yorumlar
       </h2>
-      {comments.length > 0 ? (
+      {comments?.length > 0 ? (
         comments.map((comment) => (
           <div
             key={comment._id}

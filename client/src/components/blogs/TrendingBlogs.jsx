@@ -21,7 +21,7 @@ const TrendingBlogs = ({ trendingBlogs }) => {
       <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
         Trend Olan Bloglar
       </h2>
-      {trendingBlogs.length > 0 ? (
+      {trendingBlogs?.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {trendingBlogs.map((blog) => (
             <div

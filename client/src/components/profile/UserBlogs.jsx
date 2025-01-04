@@ -14,7 +14,7 @@ const UserBlogs = () => {
   return (
     <div className="p-4">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {blogs.map((blog) => (
+        {blogs?.map((blog) => (
           <div
             key={blog._id}
             className="bg-white shadow-md rounded-lg w-7/12 md:w-full p-4 border border-gray-200 hover:shadow-lg transition-shadow duration-300"

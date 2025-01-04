@@ -103,9 +103,9 @@ const Profile = () => {
                   </button>
                 </form>
               </div>
-              {user.profileImage && (
+              {user?.profileImage && (
                 <img
-                  src={`${process.env.REACT_APP_SERVER_URL}${user.profileImage}`}
+                  src={`${user.profileImage.url}`}
                   alt="Profile"
                   className="w-24 h-24 md:w-20 md:h-20 lg:w-40 lg:h-40 rounded-full object-cover lg:mr-8"
                 />

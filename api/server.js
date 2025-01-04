@@ -20,7 +20,6 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
-app.use("/uploads", express.static("uploads"));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

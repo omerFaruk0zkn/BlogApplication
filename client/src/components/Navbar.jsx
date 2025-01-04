@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { logout } from "../store/slices/authSlice";
+import { fetchProfile, logout } from "../store/slices/authSlice";
 import { decodeToken } from "../utils/decodeToken";
 import { fetchNotifications } from "../store/slices/notificationSlice";
 
@@ -9,7 +9,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { token } = useSelector((state) => state.auth);
+  const { token, user } = useSelector((state) => state.auth);
   const tokenData = token ? decodeToken(token) : null;
 
   const { notifications } = useSelector((state) => state.notifications);
@@ -20,6 +20,7 @@ const Navbar = () => {
   useEffect(() => {
     if (token) {
       dispatch(fetchNotifications());
+      dispatch(fetchProfile());
     }
   }, [dispatch, token]);
 
@@ -59,7 +60,7 @@ const Navbar = () => {
                 Blog Ekle
               </NavLink>
             )}
-            {token && tokenData.role === "admin" && (
+            {token && tokenData?.role === "admin" && (
               <NavLink
                 to="/admin"
                 className={({ isActive }) =>
@@ -96,9 +97,9 @@ const Navbar = () => {
                   }
                 >
                   <span>Profil</span>
-                  {tokenData.profileImage && (
+                  {user?.profileImage && (
                     <img
-                      src={`${process.env.REACT_APP_SERVER_URL}${tokenData.profileImage}`}
+                      src={`${user.profileImage.url}`}
                       alt="Profile"
                       className="w-8 h-8 rounded-full object-cover"
                     />
@@ -180,7 +181,7 @@ const Navbar = () => {
                 >
                   Blog Ekle
                 </NavLink>
-                {tokenData.role === "admin" && (
+                {tokenData?.role === "admin" && (
                   <NavLink
                     to="/admin"
                     className={({ isActive }) =>
@@ -213,9 +214,9 @@ const Navbar = () => {
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
                   <span>Profil</span>
-                  {tokenData.profileImage && (
+                  {user?.profileImage && (
                     <img
-                      src={`${process.env.REACT_APP_SERVER_URL}${tokenData.profileImage}`}
+                      src={`${user.profileImage.url}`}
                       alt="Profile"
                       className="w-8 h-8 rounded-full object-cover"
                     />

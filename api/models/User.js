@@ -24,8 +24,8 @@ const userSchema = new mongoose.Schema(
       minlength: 6,
     },
     profileImage: {
-      type: String,
-      default: "/uploads/profileImages/default.jpg",
+      url: { type: String },
+      public_id: { type: String },
     },
     role: {
       type: String,

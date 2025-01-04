@@ -71,7 +71,7 @@ const AdminCategories = () => {
       {status === "loading" && <p>Yükleniyor...</p>}
       {status === "failed" && <p className="text-red-500">{error}</p>}
 
-      {categories.length > 0 ? (
+      {categories?.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {categories.map((category) => (
             <div

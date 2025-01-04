@@ -44,7 +44,7 @@ const AdminBlogs = () => {
         Yönetici Blog Paneli
       </h1>
       <AdminBlogFilter />
-      {blogs.length > 0 ? (
+      {blogs?.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogs.map((blog) => (
             <div

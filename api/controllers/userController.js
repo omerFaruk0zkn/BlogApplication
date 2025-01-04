@@ -3,11 +3,17 @@ const Blog = require("../models/Blog");
 const Comment = require("../models/Comment");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const cloudinary = require("../utils/cloudinary");
 
 exports.registerUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    const newUser = await User.create({ username, email, password });
+    const newUser = await User.create({
+      username,
+      email,
+      password,
+      profileImage: null,
+    });
     res
       .status(201)
       .json({ message: "Kullanıcı başarıyla kaydedildi", user: newUser });
@@ -33,7 +39,7 @@ exports.loginUser = async (req, res) => {
         id: user._id,
         role: user.role,
         username: user.username,
-        profileImage: user.profileImage,
+        profileImage: null,
       },
       process.env.JWT_SECRET,
       {
@@ -110,7 +116,18 @@ exports.addProfileImage = async (req, res) => {
       return res.status(404).json({ message: "Kullanıcı bulunamadı" });
     }
 
-    user.profileImage = `/uploads/profileImages/${req.file.filename}`;
+    const result = await cloudinary.uploader.upload(req.file.path, {
+      folder: "blogs",
+    });
+
+    if (user.profileImage && user.profileImage.public_id) {
+      await cloudinary.uploader.destroy(user.profileImage.public_id);
+    }
+
+    user.profileImage = {
+      url: result.secure_url,
+      public_id: result.public_id,
+    };
     await user.save();
 
     res.status(200).json({

@@ -42,7 +42,7 @@ const AdminUsers = () => {
           Yönetici Kullanıcılar Paneli
         </h2>
         <ul className="divide-y divide-gray-200">
-          {users.map((user) => (
+          {users?.map((user) => (
             <li
               key={user._id}
               className="flex flex-wrap justify-between items-center py-4 px-2 gap-4"

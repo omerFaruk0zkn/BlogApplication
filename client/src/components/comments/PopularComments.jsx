@@ -20,7 +20,7 @@ const PopularComments = ({ blogId }) => {
       <h3 className="text-lg md:text-xl font-semibold to-gray-800 mb-4 border-b border-b-black pb-2">
         Popüler Yorumlar
       </h3>
-      {popularComments.length > 0 ? (
+      {popularComments?.length > 0 ? (
         popularComments.map((comment) => (
           <div
             key={comment._id}

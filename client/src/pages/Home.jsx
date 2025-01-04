@@ -17,8 +17,6 @@ const Home = () => {
     (state) => state.blogs
   );
 
-  console.log(recommendedBlogs);
-
   useEffect(() => {
     dispatch(fetchTrendingBlogs());
     if (token) {

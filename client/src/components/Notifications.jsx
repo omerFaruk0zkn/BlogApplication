@@ -25,7 +25,7 @@ const Notifications = () => {
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">Bildirimler</h2>
-      {notifications.length > 0 ? (
+      {notifications?.length > 0 ? (
         <div className="space-y-4">
           {notifications.map((notification) => (
             <div
